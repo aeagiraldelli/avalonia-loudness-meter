@@ -19,9 +19,8 @@
     <PackageReference Include="Avalonia.Desktop" Version="0.10.18" />
     <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
     <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.18" />
-    <PackageReference Include="Projektanker.Icons.Avalonia" Version="5.8.0" />
-    <PackageReference Include="Projektanker.Icons.Avalonia.FontAwesome" Version="5.8.0" />
-    <PackageReference Include="Projektanker.Icons.Avalonia.MaterialDesign" Version="5.8.0" />
+    <PackageReference Include="Material.Icons.WPF" Version="1.2.0" />
+    <PackageReference Include="MaterialDesign.Avalonia.PackIcon" Version="1.25.0" />
     <PackageReference Include="XamlNameReferenceGenerator" Version="1.5.1" />
   </ItemGroup>
 </Project>

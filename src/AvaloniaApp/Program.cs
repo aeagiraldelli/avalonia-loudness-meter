@@ -1,4 +1,7 @@
 ﻿using Avalonia;
+using Projektanker.Icons.Avalonia;
+using Projektanker.Icons.Avalonia.FontAwesome;
+using Projektanker.Icons.Avalonia.MaterialDesign;
 using System;
 
 namespace AvaloniaApp
@@ -16,6 +19,9 @@ namespace AvaloniaApp
         public static AppBuilder BuildAvaloniaApp()
             => AppBuilder.Configure<App>()
                 .UsePlatformDetect()
-                .LogToTrace();
+                .LogToTrace()
+                .WithIcons(container => container
+                .Register<FontAwesomeIconProvider>()
+                .Register<MaterialDesignIconProvider>());
     }
 }

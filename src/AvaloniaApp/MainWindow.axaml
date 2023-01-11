@@ -7,7 +7,8 @@
         MinWidth="800" MinHeight="600"
         WindowStartupLocation="CenterScreen"
         x:Class="AvaloniaApp.MainWindow"
-        Title="Avalonia App Demo">
+        Title="Avalonia App Demo"
+  >
 
   <Window.Styles>
     <Style Selector="Button.blue">
