@@ -3,9 +3,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:i="clr-namespace:Projektanker.Icons.Avalonia;assembly=Projektanker.Icons.Avalonia"
-        mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="762"
-        Width="800" Height="600"
-        MinWidth="800" MinHeight="600"
+        xmlns:controls="clr-namespace:AvaloniaApp"
+        mc:Ignorable="d" d:DesignWidth="1024" d:DesignHeight="720"
+        Width="1024" Height="720"
+        MinWidth="1024" MinHeight="720"
         WindowStartupLocation="CenterScreen"
         x:Class="AvaloniaApp.MainWindow"
         Title="Avalonia App Demo"
@@ -13,7 +14,7 @@
 
   <Window.Styles>
     <Style Selector="Button.blue">
-      <Setter Property="Background" Value="#7F98C7" />
+      <Setter Property="Background" Value="{DynamicResource ResourceKey=BrightBlueBrush}" />
       <Setter Property="Foreground" Value="White" />
     </Style>
     <Style Selector="Button.noBackground">
@@ -59,7 +60,7 @@
   <Grid RowDefinitions="Auto, *, Auto">
     
     <!-- Title bar -->
-    <Grid Grid.Row="0" ColumnDefinitions="Auto, Auto, *, Auto, Auto" Background="#E5E5E5" Height="45">
+    <Grid Grid.Row="0" ColumnDefinitions="Auto, Auto, *, Auto, Auto" Background="{DynamicResource ResourceKey=MediumGreyBrush}" Height="45">
       
       <!-- Styles applied only to icons in the title bar -->
       <Grid.Styles>
@@ -157,9 +158,7 @@
           <StackPanel.Styles>
             <Style Selector="Button:pointerover /template/ ContentPresenter">
               <Setter Property="TextBlock.Foreground" Value="White" />
-            </Style>
-            <Style Selector="Button:pointerover /template/ ContentPresenter">
-              <Setter Property="Background" Value="#98ACD0"/>
+              <Setter Property="Background" Value="{DynamicResource ResourceKey=BrightBlueHoverBrush}"/>
             </Style>
           </StackPanel.Styles>
           
@@ -171,9 +170,31 @@
       </Grid>
 
       <!-- Loudness details panel -->
-      <Grid Grid.Column="1" Width="140">
-
-      </Grid>
+      <StackPanel Grid.Column="1" Width="170" Margin="0, 15, 10, 15">
+        <controls:LargeLabelControl />
+        <controls:LargeLabelControl LargeText="-20.7 LUFS" SmallText="INTEGRATED" Background="{DynamicResource ResourceKey=LightBlueBrush}" />
+        <controls:LargeLabelControl LargeText="9.5 LU" SmallText="LOUDNESS RANGE" />
+        <controls:LargeLabelControl LargeText="11.5 LU" SmallText="REALTIME DYNAMICS" />
+        <controls:LargeLabelControl LargeText="20.5 LU" SmallText="AVG. DYNAMIC (PLR)" Margin="0, 0, 0, 15" />
+        
+        <controls:LargeLabelControl Classes="button" LargeText="-9.8 LUFS" SmallText="MOMENTARY MAX" />
+        <controls:LargeLabelControl Classes="button" LargeText="-15.1 LUFS" SmallText="SHORT TERM MAX" />
+        <controls:LargeLabelControl Classes="button" LargeText="0.7 dB" SmallText="TRUE PEAK MAX" Margin="0, 0, 0, 5"/>
+        
+        <!-- details buttons -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+          <StackPanel.Styles>
+            <Style Selector="Button:pointerover /template/ ContentPresenter">
+              <Setter Property="TextBlock.Foreground" Value="White" />
+              <Setter Property="Background" Value="{DynamicResource ResourceKey=BrightBlueHoverBrush}"/>
+            </Style>
+          </StackPanel.Styles>
+          <Button Classes="blue small smallMargin smallRounded">AUTO</Button>
+          <Button Classes="smallMargin" Width="30" Height="30" CornerRadius="15" Background="{DynamicResource ResourceKey=FadedRedBrush}">
+            <i:Icon Value="mdi-window-close" />
+          </Button>
+        </StackPanel>
+      </StackPanel>
 
       <!-- Chart -->
       <Grid Grid.Column="2"></Grid>

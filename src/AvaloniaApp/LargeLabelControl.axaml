@@ -1,0 +1,50 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="using:AvaloniaApp">
+  <Design.PreviewWith>
+    <Border Background="{DynamicResource ResourceKey=DarkBlueBrush}">
+      <StackPanel>
+        <controls:LargeLabelControl />
+        <controls:LargeLabelControl Classes="button" />
+      </StackPanel>
+    </Border>
+  </Design.PreviewWith>
+  
+  <Style Selector="Label">
+    <Setter Property="HorizontalAlignment" Value="Center" />
+  </Style>
+
+  <Style Selector="controls|LargeLabelControl">
+    <!-- Set Defaults -->
+    <Setter Property="Foreground" Value="White" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="Background" Value="{DynamicResource ResourceKey=MidBlueBrush}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Padding="15, 7" Background="{TemplateBinding Property=Background}">
+          <StackPanel>
+            <Label Foreground="{TemplateBinding Foreground}" Content="{TemplateBinding Property=LargeText}" FontSize="21"/>
+            <Label Foreground="{TemplateBinding Foreground}" Content="{TemplateBinding Property=SmallText}" FontSize="11"/>
+          </StackPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+
+  <Style Selector="controls|LargeLabelControl.button">
+    <!-- Set Defaults -->
+    <Setter Property="Foreground" Value="White" />
+    <Setter Property="Padding" Value="0" />
+    <Setter Property="Background" Value="{DynamicResource ResourceKey=MidBlueBrush}" />
+    <Setter Property="Template">
+      <ControlTemplate>
+        <Border Padding="15, 7">
+          <StackPanel>
+            <Label Foreground="{TemplateBinding Foreground}" Background="{TemplateBinding Property=Background}" Padding="15, 5" CornerRadius="30" Content="{TemplateBinding Property=LargeText}" FontSize="21"/>
+            <Label Foreground="{TemplateBinding Foreground}" Content="{TemplateBinding Property=SmallText}" FontSize="11"/>
+          </StackPanel>
+        </Border>
+      </ControlTemplate>
+    </Setter>
+  </Style>
+</Styles>
